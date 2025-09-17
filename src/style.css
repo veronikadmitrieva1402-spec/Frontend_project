@@ -18,6 +18,7 @@ button, [type="submit"] {
     color: #fff; 
     border: 3px solid #333; 
     cursor: pointer; 
+    padding: 10px 20px;
 } 
 /* Состояния: клавиатура/мышь/ошибки */ 
 :where(input, select, textarea, button):focus-visible { 

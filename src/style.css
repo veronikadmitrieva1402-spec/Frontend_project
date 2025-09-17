@@ -16,7 +16,7 @@ input, select, textarea, button {
 button, [type="submit"] { 
     background: #0a84ff; 
     color: #fff; 
-    border: none; 
+    border: 3px solid #333; 
     cursor: pointer; 
 } 
 /* Состояния: клавиатура/мышь/ошибки */ 

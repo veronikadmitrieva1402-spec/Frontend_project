@@ -3,11 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - Название вашего сайта</title>
-    <meta name="description" content="Краткое описание главной страницы вашего сайта">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <title>О нас - Название вашего сайта</title>
     <meta name="description" content="Узнайте больше о нашей компании и истории">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background:
+                linear-gradient(rgba(180, 133, 133, 0.8), rgba(184, 10, 10, 0.8)),
+                url('../assets/7004-20-oboykin-euro-decor-bond.jpg');
+            background-size: cover;
+            backdrop-filter: blur(5px);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        
+        main {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,7 +69,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
+                <li><a href="about.html" class="activePage">О нас</a></li>
                 <li><a href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
@@ -32,11 +85,11 @@
         <h1>О нашей компании</h1>
         <section>
             <h2>Наша история</h2>
-            <p>Текст о том, как все начиналось...</p>
+            <p>Все началось в 1975 году, когда Джон Уилкинс приехал из Соединенных Штатов Америки в Москву, чтобы открыть свою галерею. </p>
         </section>
         <section>
             <h2>Наша команда</h2>
-            <p>Текст о команде...</p>
+            <p>Главная фраза нашей команды "Делай, делай и делай"</p>
         </section>
     </main>
 

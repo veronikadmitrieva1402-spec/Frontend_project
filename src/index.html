@@ -3,53 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная - Название вашего сайта</title>
+    <title>Художественная галерея</title>
     <meta name="description" content="Краткое описание главной страницы вашего сайта">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <style>
+        /* Общие стили */
+        body {
+            background:
+                linear-gradient(rgba(180, 133, 133, 0.8), rgba(184, 10, 10, 0.8)),
+                url('../assets/7004-20-oboykin-euro-decor-bond.jpg');
+            background-size: cover;
+            backdrop-filter: blur(5px);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            display: block; 
+        }
+
+        /* Контейнер для контента */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Стили для гифки */
+        .gif-container {
+            position: relative;
+            padding: 20px;
+            background: linear-gradient(45deg, #ff7272, #db4b4b, #da504b, #ad2c2c);
+            border-radius: 15px;
+            animation: borderAnimation 3s infinite alternate;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            margin: 40px auto; /* Центрирование */
+            width: fit-content; /* Ширина по содержимому */
+            max-width: 100%;
+        }
+
+        .gif-container::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #ff6b6b, #cd4e4e, #c42d2d, #ff8843);
+            border-radius: 20px;
+            z-index: -1;
+            animation: borderAnimation 3s infinite alternate-reverse;
+            filter: blur(10px);
+            opacity: 0.7;
+        }
+
+        .gif-container img {
+            display: block;
+            width: 900px;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            object-fit: cover;
+            max-width: 100%; 
+            height: auto; 
+        }
+
+        @keyframes borderAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Кнопка "Написать нам" */
+        #openDialog {
+            border: 3px solid #000000;
+            background: linear-gradient(145deg, #972424, #430303);
+            color: rgb(213, 196, 196);
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            z-index: 1000;
+            border: none; 
+        }
+
+        #openDialog:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Диалоговое окно */
+        dialog {
+            border: 1px solid #bc8080;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 500px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        
+        .form-actions {
+            margin-top: 20px;
+            text-align: right;
+        }
+        
+        button {
+            margin-left: 10px;
+        }
+
+    
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Основной контент */
+        main {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* Галерея изображений */
+        #portfolio {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        #portfolio img {
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        #portfolio img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Подвал */
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        @media (max-width: 1000px) {
+            .gif-container img {
+                width: 100%;
+                height: auto;
+                max-height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .gif-container {
+                padding: 15px;
+                margin: 20px auto;
+            }
+            
+            #openDialog {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Шапка сайта -->
-    <header>
-        <a href="/">Логотип или название сайта</a>
-        <!-- Главное меню навигации -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="content-wrapper">
+        <!-- Шапка сайта -->
+        <header>
+            <a href="/">KIKO</a>
+            <!-- Главное меню навигации -->
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="activePage">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <!-- Уникальное основное содержимое страницы -->
-    <main>
-        <h1>Добро пожаловать на наш сайт!</h1>
+        <!-- Уникальное основное содержимое страницы -->
+        <main>
+            <h1>Добро пожаловать на наш сайт!</h1>
+            <p>Мы очень рады приветствовать вас на сайте самой лучшей галереи Москвы!</p>
 
-        <!-- Секция 1 с якорем -->
-        <section id="services">
-            <h2>Наши услуги</h2>
-            <p>Описание предоставляемых услуг...</p>
-            <a href="#contacts">Связаться с нами</a> <!-- Якорная ссылка внутри страницы -->
-        </section>
+            <!-- Контейнер для гифки -->
+            <div class="gif-container">
+                <img src="../assets/12.gif" alt="Анимированная гифка">
+            </div>
 
-        <!-- Секция 2 с якорем -->
-        <section id="portfolio">
-            <h2>Портфолио</h2>
-            <p>Примеры наших работ...</p>
-        </section>
+            <!-- Секция 1 с якорем -->
+            <section id="services">
+                <h2>Наши услуги...</h2>
+                <a href="contacts.html">Связаться с нами</a>
+            </section>
 
-        <!-- Секция 3 с якорем -->
-        <section id="contacts">
-            <h2>Контактная информация</h2>
-            <p>Наши контакты...</p>
-            <a href="contacts.html">Подробнее</a> <!-- Ссылка на отдельную страницу -->
-        </section>
-    </main>
+            <!-- Секция 2 с якорем -->
+            <section id="portfolio">
+                <h2>Портфолио</h2>
+                <p>Примеры наших работ</p>
+                <img src="../assets/0c18c2de735d97ddba827c9c250bf5ca.webp" alt="First_ship" width="100" height="100">
+                <img src="../assets/a47d85f44ce7c26d5cad3d6852cea6a7.webp" alt="Second_ship" width="100" height="100">
+                <img src="../assets/i.webp" alt="Third_ship" width="100" height="100">
+            </section>
 
-    <!-- Подвал сайта -->
-    <footer>
-        <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
-        <p>Телефон: +7 (123) 456-78-90</p>
-    </footer>
+            <!-- Секция 3 с якорем -->
+            <section id="contacts">
+                <h2>Контактная информация</h2>
+                <p>Наши контакты...</p>
+                <a href="contacts.html">Подробнее</a>
+            </section>
+        </main>
+
+        <!-- Подвал сайта -->
+        <footer>
+            <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
+            <p>Телефон: +7 (123) 456-78-90</p>
+        </footer>
+    </div>
+
+    <!-- Кнопка и диалог -->
+    <button id="openDialog" type="button">Написать нам</button>
+    
+    <dialog id="contactDialog" aria-labelledby="dialogTitle"> 
+        <h2 id="dialogTitle">Обратная связь</h2> 
+        <form id="contactForm" method="dialog" novalidate> 
+            <label for="name">Имя</label> 
+            <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name"> 
+            
+            <label for="email">E-mail</label> 
+            <input id="email" name="email" type="email" required autocomplete="email"> 
+            
+            <label for="phone">Телефон</label> 
+            <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" 
+                aria-describedby="phoneHelp" placeholder="+7 (___) ___-__-__" 
+                required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" pattern="[0-9]*" oninput="this.value = this.value.replace(/[eE+-]/g, '');" > 
+            <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+            
+            <label for="date">Дата</label> 
+            <input id="date" name="date" type="date"> 
+            
+            <label for="topic">Тема</label> 
+            <select id="topic" name="topic" required> 
+                <option value="">Выберите тему</option> 
+                <option>Вопрос</option> 
+                <option>Заказ</option> 
+            </select> 
+            
+            <label for="message">Сообщение</label> 
+            <textarea id="message" name="message" rows="4" required></textarea> 
+            
+            <div class="form-actions"> 
+                <button type="button" id="closeDialog">Закрыть</button> 
+                <button type="submit">Отправить</button> 
+            </div> 
+        </form> 
+    </dialog>
+
+    <script>
+        // Базовая логика для диалогового окна
+        document.addEventListener('DOMContentLoaded', function() {
+            const dialog = document.getElementById('contactDialog');
+            const openButton = document.getElementById('openDialog');
+            const closeButton = document.getElementById('closeDialog');
+            const form = document.getElementById('contactForm');
+
+            openButton.addEventListener('click', () => {
+                dialog.showModal();
+            });
+
+            closeButton.addEventListener('click', () => {
+                dialog.close();
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Форма отправлена!');
+                dialog.close();
+            });
+        });
+    </script>
 </body>
 </html>

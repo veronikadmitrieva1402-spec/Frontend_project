@@ -1,35 +1,102 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    ... <!-- Скопируйте весь блок <head> из index.html -->
-    <title>О нас - Название вашего сайта</title>
-    <meta name="description" content="Узнайте больше о нашей компании и истории">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как связаться с нами</title>
+    <meta name="description" content="Краткое описание контактов нашего сайта">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background:
+                linear-gradient(rgba(180, 133, 133, 0.8), rgba(184, 10, 10, 0.8)),
+                url('../assets/7004-20-oboykin-euro-decor-bond.jpg');
+            background-size: cover;
+            backdrop-filter: blur(5px);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            display: block;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        
+        main {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
-        ... <!-- Скопируйте весь блок <header> из index.html -->
+        <a href="/">Логотип или название сайта</a>
+        <!-- Главное меню навигации -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html" class="activePage"git >Контакты</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <!-- Простые "хлебные крошки" -->
-        <nav aria-label="Хлебные крошки">
-            <a href="index.html">Главная</a> →
-            <span>О нас</span>
-        </nav>
-
-        <h1>О нашей компании</h1>
-        <section>
-            <h2>Наша история</h2>
-            <p>Текст о том, как все начиналось...</p>
+        <!-- Контакты -->
+        <h1>Контактная информация</h1>
+        <section id = "numbers">
+            <h2>Номера</h2>
+            <p>Контакты главного менеджера: +7 (913) 456-76-43</p>
+            <p>Контакты главного секретаря: +7 (950) 567-32-65</p>
+            <p>Контакты бухгалтера: +7 (908) 435-75-23</p>
         </section>
-        <section>
-            <h2>Наша команда</h2>
-            <p>Текст о команде...</p>
+        <section id = "emails">
+            <h2>Почта</h2>
+            <p>Менеджер: gilkov.r@yandex.ru</p>
+            <p>Секретарь: romashkova.v.p@yandex.ru</p>
+            <p>Бухгалтер: rizanov.j.g@yandex.ru</p>
         </section>
     </main>
 
     <footer>
-        ... <!-- Скопируйте весь блок <footer> из index.html -->
+        <p>&copy; 2023 Название вашего сайта. Все права защищены.</p>
+        <p>Телефон: +7 (123) 456-78-90</p>
     </footer>
 </body>
 </html>
